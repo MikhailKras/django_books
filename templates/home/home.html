@@ -1,0 +1,12 @@
+{% extends 'base/base.html' %}
+
+{% block title %} Home page {% endblock %}
+
+{% block body %}
+<h1 style="font-size: 30px">Main menu</h1>
+    {% for url_name, name in urls %}
+        <ul style="font-size: 24px">
+            <li><a href="{% url url_name %}">{{ name|capfirst }}</a></li>
+        </ul>
+    {% endfor %}
+{% endblock %}

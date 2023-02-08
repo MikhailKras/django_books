@@ -1,0 +1,42 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+{% load list_books_extras %}
+
+{% block title %} List of books {% endblock %}
+
+{% block css_addition %}
+    <link rel="stylesheet" href={% static 'css/table_style.css' %}>
+{% endblock %}
+
+{% block body %}
+<table>
+    <thead>
+        <tr>
+            <th>Author</th>
+            <th>Title</th>
+            <th>Date start</th>
+            <th>Date end</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for book in books %}
+        <tr>
+            <td>{{ book.author }}</td>
+            <td>{{ book.title }}</td>
+            <td>
+                {% if book.date_start is not None %}
+                {{ book.date_start|format_date }}
+                {% endif %}
+            </td>
+            <td>
+                {% if book.date_end is not None %}
+                {{ book.date_end|format_date }}
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,9 @@
+table, th, tr, td {
+    border: 2px solid rebeccapurple;
+    border-collapse: collapse;
+    font-size: 26px;
+}
+
+tr:hover {
+    background-color: greenyellow;
+}
