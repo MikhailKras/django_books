@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import reverse
 
 # Create your models here.
 
@@ -9,9 +10,5 @@ class Books(models.Model):
     date_start = models.DateTimeField(null=True)
     date_end = models.DateTimeField(null=True)
 
-    # def __str__(self):
-    #     if self.date_start is None and self.date_end is None:
-    #         return f'{self.title}, {self.author}'
-    #     elif self.date_end is None:
-    #         return f'{self.title}, {self.author}, {self.date_start.strftime("%d.%m.%Y")}'
-    #     return f'{self.title}, {self.author}, {self.date_start.strftime("%d.%m.%Y")}-{self.date_end.strftime("%d.%m.%Y")}'
+    def get_url(self):
+        return reverse('book-info', args=[self.id])

@@ -1,0 +1,15 @@
+{% extends 'base/base.html' %}
+
+{% load list_books_extras %}
+
+{% block title %}
+    Информация о {{ book.title }}
+{% endblock %}
+
+{% block body %}
+    <h1>Название - {{ book.title }}</h1>
+    <h1>Автор - {{ book.author }}</h1>
+    <h1>Дата начала - {{ book.date_start|format_date }}</h1>
+    <h1>Дата конца - {{ book.date_end|format_date }}</h1>
+    <h1><a href={% url 'list_books' %}>Список всех книг</a></h1>
+{% endblock %}

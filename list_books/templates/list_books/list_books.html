@@ -24,17 +24,9 @@
     {% for book in books %}
         <tr>
             <td>{{ book.author }}</td>
-            <td>{{ book.title }}</td>
-            <td>
-                {% if book.date_start is not None %}
-                {{ book.date_start|format_date }}
-                {% endif %}
-            </td>
-            <td>
-                {% if book.date_end is not None %}
-                {{ book.date_end|format_date }}
-                {% endif %}
-            </td>
+            <td><a href={{ book.get_url }}>{{ book.title }}</a></td>
+            <td>{{ book.date_start|format_date }}</td>
+            <td>{{ book.date_end|format_date }}</td>
         </tr>
     {% endfor %}
     </tbody>
