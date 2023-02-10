@@ -18,6 +18,7 @@
             <th>Title</th>
             <th>Date start</th>
             <th>Date end</th>
+            <th>Time delta</th>
         </tr>
     </thead>
     <tbody>
@@ -27,8 +28,10 @@
             <td><a href={{ book.get_url }}>{{ book.title }}</a></td>
             <td>{{ book.date_start|format_date }}</td>
             <td>{{ book.date_end|format_date }}</td>
+            <td>{{ book.time_delta }}</td>
         </tr>
     {% endfor %}
     </tbody>
 </table>
+    <h1>Количество книг: {{ total.id__count }}</h1>
 {% endblock %}
