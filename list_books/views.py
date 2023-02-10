@@ -4,14 +4,17 @@ from .models import Books
 
 
 def get_list_books(request):
+    books = Books.objects.all()
+    for book in books:
+        book.save()
     data = {
-        'books': Books.objects.all()
+        'books': books
     }
     return render(request, 'list_books/list_books.html', context=data)
 
 
-def get_info_book(request, id_book: int):
-    book = get_object_or_404(Books, id=id_book)
+def get_info_book(request, slug_book: str):
+    book = get_object_or_404(Books, slug=slug_book)
     data = {
         'book': book
     }
